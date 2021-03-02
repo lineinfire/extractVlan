@@ -1,0 +1,35 @@
+.progress-bar {
+    text-align: left;
+    float: left;
+    width: 0;
+    height: 100%;
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+    background-color: transparent;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+    -webkit-transition: width .6s ease;
+    -o-transition: width .6s ease;
+    
+}
+
+.progress-below-20 {
+    background-color: red;
+ }
+
+.progress-below-40 {
+    background-color: #a6c713;
+}
+
+.progress-below-60 {
+    background-color: #3014aa;
+}
+
+.progress-below-80 {
+    background-color: #c0184b;
+}
+
+.progress-below-100 {
+    background-color: #16d1c2;
+}

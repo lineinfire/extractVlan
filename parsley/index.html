@@ -1,0 +1,39 @@
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.1/parsley.min.js"></script>
+<form method="post" id="myForm">
+    <input type="text" name="_xsrf" id="_xsrf" value="test">
+    <input type="text" name="userName" id="userName" 
+        data-parsley-trigger="focusout"
+        data-parsley-remote-options='{ "type": "POST" }'
+        data-parsley-remote-validator="validateName"
+        data-parsley-remote-message="Name already exists."
+        data-parsley-remote
+        required>
+    <!-- <input type="button" id="formSave" name="submit" value="Next"> -->
+    <input type="submit" id="formSave" name="formSave" value="Next">
+</form>
+<script type="text/javascript">
+    var _xsrf = $("#_xsrf").val();
+    var userName = $("#userName").parsley()
+    .addAsyncValidator('validateName', function (xhr) {
+        return xhr.status === 200;
+    }, 'CheckEmailAvailability1.php?_xsrf=' + _xsrf);
+    $( "#myForm" ).parsley();
+
+    $("#myForm" ).submit(function( event ) {
+        // debugger;
+        $(this).parsley("validate");
+        if ($(this).parsley("isValid")) {
+            //     console.log('valid');
+            // }
+            // else
+            //     console.log("invalid");
+            alert("Form Submission");
+            event.preventDefault();
+
+        }
+    });
+</script>
